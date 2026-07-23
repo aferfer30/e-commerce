@@ -1,13 +1,9 @@
 import { PrismaClient } from "./generated/prisma/client";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
 
-let dbUrl = process.env.DATABASE_URL;
-if (!dbUrl || dbUrl === "undefined") {
-  dbUrl = "file:./ecommerce.db";
-}
-
+// Hardcoded to avoid Turbopack env variable stringification quirks
 const adapter = new PrismaLibSql({
-  url: dbUrl,
+  url: "file:./ecommerce.db",
 });
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
