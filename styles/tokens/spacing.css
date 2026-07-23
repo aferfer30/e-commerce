@@ -1,0 +1,5 @@
+/* Spacing Tokens */
+:root {
+  --spacing-container: 2rem;
+  --spacing-section: 4rem;
+}

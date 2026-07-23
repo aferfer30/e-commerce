@@ -1,0 +1,7 @@
+/* Typography Tokens — Syne (Display) + Inter (Body) */
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+}

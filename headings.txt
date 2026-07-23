@@ -1,0 +1,585 @@
+# Part1:
+# 1. Introduction
+# 1.2 Project Overview
+# 1.3 Project Name
+# 1.4 Project Objectives
+# 1.5 Success Criteria
+# 1.6 Non-Goals
+# 1.7 Project Constraints
+# 1.8 Core Philosophy
+# 1.9 Target Audience
+# 1.10 User Personas
+# 1.11 Website Concept
+# 1.12 Design Philosophy
+# 1.13 Development Philosophy
+# 1.14 Feature Philosophy
+# 1.15 Quality Standards
+# 1.16 Repository Organization
+# 1.17 Documentation Philosophy
+# 1.18 Coding Philosophy
+# 1.19 Long-Term Vision
+# 2. Technical Foundation
+# 3. Architecture Overview
+# Part 2.1A — Database Architecture
+# 1. Database Philosophy
+# 1.2 Design Principles
+# 1.3 Database Objectives
+# 1.4 Database Characteristics
+# 1.5 Database Engine
+# 1.6 ORM
+# 2. Primary Database Entities
+# 3. Entity Relationships
+# 4. Primary Key Strategy
+# 5. Foreign Key Philosophy
+# 6. Cascading Rules
+# 7. Data Integrity Rules
+# 8. Naming Philosophy
+# 9. Timestamp Policy
+# 10. Soft Delete Philosophy
+# 11. Indexing Strategy
+# 12. Product Model
+# 13. Category Model
+# 14. Product Image Model
+# 15. Product Specification Model
+# 16. Inventory Model
+# 17. Database Quality Standards
+# Part 2.1B — Backend Services & Business Logic
+# 18. Backend Philosophy
+# 19. Backend Responsibilities
+# 20. Service-Oriented Architecture
+# 21. Product Service
+# 22. Category Service
+# 23. Inventory Service
+# 24. Cart Service
+# 25. Wishlist Service
+# 26. Order Service
+# 27. Review Service
+# 28. Banner Service
+# 29. Store Settings Service
+# 30. Search Service
+# 31. Media Service
+# 32. Shared Utility Services
+# 33. Business Rules
+# 34. Order Lifecycle
+# 35. Product Lifecycle
+# 36. Review Lifecycle
+# 37. Inventory Rules
+# 38. Price Calculation Rules
+# 39. Shipping Rules
+# 40. Validation Philosophy
+# 41. Error Handling
+# 42. Logging Philosophy
+# 43. Future Scalability
+# 44. Backend Quality Standards
+# Part 2.2A — API Architecture & Communication
+# 45. API Philosophy
+# 46. API Design Principles
+# 47. API Folder Organization
+# 48. Endpoint Naming Rules
+# 49. HTTP Methods
+# 50. Standard Response Format
+# 51. Standard Error Format
+# 52. HTTP Status Codes
+# 53. Request Validation
+# 54. Data Sanitization
+# 55. Pagination Strategy
+# 56. Sorting Strategy
+# 57. Filtering Strategy
+# 58. Search Strategy
+# 59. Slug Strategy
+# 60. File Upload Philosophy
+# 61. API Versioning
+# 62. Response Performance
+# 63. Idempotency
+# 64. API Documentation
+# 65. Client Communication Rules
+# 66. Retry Philosophy
+# 67. API Quality Standards
+# Part 2.2B — State Management, Security & Backend Development Standards
+# 68. State Management Philosophy
+# 69. State Categories
+# 70. Zustand Store Organization
+# 71. Local Storage Rules
+# 72. Synchronization Rules
+# 73. Loading State Standards
+# 74. Error State Standards
+# 75. Empty State Standards
+# 76. Authentication Philosophy
+# 77. Authorization Philosophy
+# 78. Route Protection
+# 79. Security Principles
+# 80. Input Validation Standards
+# 81. Sensitive Data Handling
+# 82. Environment Variables
+# 83. Logging Standards
+# 84. Performance Philosophy
+# 85. Backend Coding Standards
+# 86. Dependency Philosophy
+# 87. Reusability Standards
+# 88. Scalability Guidelines
+# 89. Backend Testing Philosophy
+# 90. Documentation Standards
+# 91. Refactoring Philosophy
+# 92. Technical Debt Policy
+# 93. Future Development Principles
+# 94. Definition of Done — Backend
+# 95. Final Backend Principles
+# Part 3.1 — Design Language & Brand Identity
+# 96. Design Philosophy
+# 97. Design Goals
+# 98. Target Market
+# 99. Overall Website Structure
+# 100. Brand Personality
+# 101. Visual Style
+# 102. Design Inspirations
+# 103. User Experience Philosophy
+# 104. Homepage Philosophy
+# 105. Color Philosophy
+# 106. Primary Color Palette
+# 107. Accent Colors
+# 108. Currency Display
+# 109. Typography Philosophy
+# 110. Typography Scale
+# 111. Spacing System
+# 112. Grid System
+# 113. Card Design
+# 114. Product Photography
+# 115. Iconography
+# 116. Motion Philosophy
+# 117. Hover States
+# 118. Scroll Experience
+# 119. Visual Consistency
+# 120. Final Design Principles
+# Part 3.2 — Component Design System
+# 121. Component Philosophy
+# 122. Design Consistency
+# 123. Component States
+# 124. Buttons
+# 125. Button Behavior
+# 126. Product Cards
+# 127. Product Card Interactions
+# 128. Category Cards
+# 129. Navigation Bar
+# 130. Mobile Navigation
+# 131. Search Bar
+# 132. Filter Sidebar
+# 133. Shopping Cart Drawer
+# 134. Shopping Cart Table
+# 135. Quantity Selector
+# 136. Forms
+# 137. Input Components
+# 138. Validation Messages
+# 139. Modal Dialogs
+# 140. Drawers
+# 141. Toast Notifications
+# 142. Badges
+# 143. Breadcrumb Navigation
+# 144. Pagination
+# 145. Rating Component
+# 146. Review Cards
+# 147. Price Component
+# 148. Loading Components
+# 149. Empty State Components
+# 150. Error Components
+# 151. Footer
+# 152. Promotional Components
+# 153. Dashboard Components
+# 154. Animation Standards
+# 155. Responsive Behavior
+# 156. Accessibility Standards
+# 157. Component Documentation
+# 158. Component Quality Standards
+# Part 3.3 — Page Specifications
+# 159. Page Design Philosophy
+# 160. Homepage (/)
+# 161. Homepage Structure
+# 162. Announcement Bar
+# 163. Hero Section
+# 164. Hero Design Rules
+# 165. Featured Products Section
+# 166. Category Section
+# 167. Promotional Banner
+# 168. Best Sellers Section
+# 169. New Arrivals Section
+# 170. Customer Benefits Section
+# 171. Shop Page (/shop)
+# 172. Shop Layout
+# 173. Shop Features
+# 174. Product Grid
+# 175. Search Results Page
+# 176. Product Details Page (/product/[slug])
+# 177. Product Page Structure
+# 178. Product Gallery
+# 179. Product Information
+# 180. Purchase Section
+# 181. Specifications Section
+# 182. Product Description
+# 183. Shipping Information
+# 184. Related Products
+# 185. Cart Page (/cart)
+# 186. Cart Structure
+# 187. Cart Experience
+# 188. Checkout Page (/checkout)
+# 189. Checkout Information
+# 190. Payment Section
+# 191. Order Confirmation Page
+# 192. Profile Page (/profile)
+# 193. Orders Page (/orders)
+# 194. Wishlist Page (/wishlist)
+# 195. Admin Dashboard (/admin)
+# 196. Dashboard Overview
+# 197. Product Management Page
+# 198. Order Management Page
+# 199. Mobile Design Requirements
+# 200. Page Quality Standards
+# Part 3.4 — User Experience & Interaction Design
+# 201. UX Philosophy
+# 202. UX Priorities
+# 203. User Journey Philosophy
+# 204. Navigation Experience
+# 205. Header Behavior
+# 206. Search Experience
+# 207. Search Interaction Flow
+# 208. Search Empty States
+# 209. Product Discovery Experience
+# 210. Product Card Interaction
+# 211. Add To Cart Experience
+# 212. Cart Experience Philosophy
+# 213. Checkout Experience Philosophy
+# 214. Algerian Checkout UX Requirements
+# 215. Checkout Form Design
+# 216. Form Error Experience
+# 217. Loading Experience
+# 218. Skeleton Design
+# 219. Page Transitions
+# 220. Animation Principles
+# 221. Hover Interactions
+# 222. Touch Interactions
+# 223. Notification System
+# 224. Trust Building Elements
+# 225. Reviews Experience
+# 226. Accessibility Philosophy
+# 227. Keyboard Navigation
+# 228. Mobile Experience Priority
+# 229. Performance UX Rules
+# 230. Error Recovery Experience
+# 231. Empty Experience Design
+# 232. Micro-Interactions
+# 233. UX Testing Checklist
+# 234. Final UX Principles
+# Part 4.1 — Product Catalog Strategy
+# 235. Catalog Philosophy
+# 236. Catalog Objectives
+# 237. Target Catalog Size
+# 238. Catalog Distribution
+# 239. Target Market Selection
+# 240. Category Structure
+# 241. Primary Categories
+# 242. Brand Strategy
+# 243. Product Naming Rules
+# 244. Product Price Philosophy
+# 245. Price Ranges
+# 246. Product Availability
+# 247. Featured Products
+# 248. Best Sellers
+# 249. New Arrivals
+# 250. Product Information Quality
+# 251. Catalog Consistency Rules
+# 252. Portfolio Demonstration Strategy
+# 253. Future Expansion
+# 254. Catalog Completion Criteria
+# Part 4.2 — Product Data Model & Information Standards
+# 255. Product Information Philosophy
+# 256. Product Data Structure Overview
+# 257. Product Identity Fields
+# 258. Product Slug
+# 259. Brand Field
+# 260. Category Field
+# 261. Short Description
+# 262. Full Description
+# 263. Price Information
+# 264. Stock Information
+# 265. Warranty Information
+# 266. Delivery Information
+# 267. Product Images
+# 268. Technical Specification Philosophy
+# 269. Laptop Specifications
+# 270. Desktop PC Specifications
+# 271. Graphics Card Specifications
+# 272. Processor Specifications
+# 273. RAM Specifications
+# 274. Storage Specifications
+# 275. Monitor Specifications
+# 276. Peripheral Specifications
+# 277. Product Features
+# 278. Compatibility Information
+# 279. SEO Data
+# 280. Product Tags
+# 281. Product Relationships
+# 282. Product Review Data
+# 283. Product Data Quality Rules
+# 284. AI Product Generation Rules
+# 285. Product Completion Checklist
+# Part 4.3 — Product Image & Media Guidelines
+# 286. Media Philosophy
+# 287. Media Objectives
+# 288. Image Strategy
+# 289. Image Source Philosophy
+# 290. Copyright Awareness
+# 291. Image Quantity Requirements
+# 292. Main Product Image
+# 293. Gallery Image Standards
+# 294. Image Composition
+# 295. Image Resolution Standards
+# 296. Aspect Ratio Standards
+# 297. Image Background Standards
+# 298. Product Image Naming
+# 299. Image Folder Structure
+# 300. Image Format
+# 301. Image Optimization Rules
+# 302. Product Image Loading
+# 303. Image Alt Text
+# 304. Product Image Consistency Rules
+# 305. Homepage Media Strategy
+# 306. Banner Image Standards
+# 307. AI-Generated Images Usage
+# 308. $0 Media Workflow
+# 309. Media Management Rules
+# 310. Future Media Expansion
+# 311. Media Completion Checklist
+# Part 4.4 — Catalog Generation Workflow
+# 312. Catalog Creation Philosophy
+# 313. Catalog Generation Goals
+# 314. Generation Workflow Overview
+# 315. Step 1 — Category Definition
+# 316. Step 2 — Product Distribution Planning
+# 317. Product Distribution Rules
+# 318. Step 3 — Product Database Template
+# 319. Step 4 — Product Generation
+# 320. AI Product Generation Rules
+# 321. Product Validation
+# 322. Realism Validation Examples
+# 323. Step 5 — Image Collection Workflow
+# 324. Image Organization
+# 325. Step 6 — Description Generation
+# 326. Description Rules
+# 327. Step 7 — SEO Generation
+# 328. Step 8 — Database Import
+# 329. Seed Data Strategy
+# 330. Product Seed Organization
+# 331. Catalog Testing
+# 332. Visual Testing
+# 333. Homepage Product Selection
+# 334. Demonstration Products
+# 335. Catalog Maintenance
+# 336. $0 Implementation Strategy
+# 337. Final Catalog Workflow Checklist
+# Part 4.5 — Algerian E-Commerce Rules
+# 338. Market Adaptation Philosophy
+# 339. Algerian Customer Expectations
+# 340. Currency Rules
+# 341. Price Formatting Rules
+# 342. Price Positioning
+# 343. Algerian Market Price Factors
+# 344. Delivery Philosophy
+# 345. Wilaya Coverage
+# 346. Wilaya Selector
+# 347. Delivery Information Display
+# 348. Delivery Time
+# 349. Delivery Cost
+# 350. Payment Philosophy
+# 351. Cash on Delivery Experience
+# 352. Card Payment Support
+# 353. Customer Contact
+# 354. Phone Number Validation
+# 355. Language Strategy
+# 356. Primary Language Priority
+# 357. Arabic Support
+# 358. English Support
+# 359. Product Naming in Algeria
+# 360. Search Behavior
+# 361. Product Descriptions
+# 362. Trust Elements
+# 363. Order Confirmation
+# 364. Order Status
+# 365. Algerian E-Commerce UX Rules
+# 366. Mobile Priority
+# 367. Local Market Product Strategy
+# 368. Algerian Market Demonstration Rules
+# 369. Final Algerian Adaptation Checklist
+# Part 4.6 — Demo Data & Portfolio Presentation
+# 370. Demo Data Philosophy
+# 371. Portfolio Presentation Objectives
+# 372. Fictional Store Identity
+# 373. Store Positioning
+# 374. Homepage Product Strategy
+# 375. Featured Products Section
+# 376. Best Sellers Section
+# 377. New Arrivals Section
+# 378. Promotional Products
+# 379. Product Variety Demonstration
+# 380. Demo Customer Accounts
+# 381. Demo Customer Data
+# 382. Demo Order Data
+# 383. Demo Review Data
+# 384. Review Quality Rules
+# 385. Product Recommendation Data
+# 386. Search Demonstration Data
+# 387. Filter Demonstration Data
+# 388. Product Comparison Opportunities
+# 389. Marketing Content
+# 390. Banner Strategy
+# 391. Admin Demonstration
+# 392. Demo Analytics Data
+# 393. Demo Data Safety
+# 394. Portfolio Deployment Preparation
+# 395. Portfolio Presentation Page
+# 396. Technical Showcase
+# 397. Client Demonstration Scenario
+# 398. Final Catalog Presentation Checklist
+# 399. Final Part 4 Conclusion
+# Part 5.1 — AI Agent Operating Rules
+# 400. AI Agent Role Definition
+# 401. Documentation Authority
+# 402. Project Understanding Requirement
+# 403. Development Philosophy
+# 404. Incremental Development Rule
+# 405. Existing Code Respect Rule
+# 406. Architecture Protection Rule
+# 407. Dependency Management Rules
+# 408. Code Quality Standards
+# 409. TypeScript Rules
+# 410. Component Creation Rules
+# 411. Design System Compliance
+# 412. Responsive Development Rule
+# 413. Accessibility Requirement
+# 414. Performance Rules
+# 415. Security Rules
+# 416. Database Modification Rules
+# 417. API Development Rules
+# 418. Error Handling Rules
+# 419. Testing Requirement
+# 420. Communication Rules
+# 421. Uncertainty Handling
+# 422. Completion Definition
+# 423. Final AI Operating Principle
+# Part 5.2 — Development Strategy
+# 424. Development Strategy Philosophy
+# 425. Development Approach
+# 426. Feature Priority System
+# 427. Level 1 — Essential Features
+# 428. Level 2 — Professional Features
+# 429. Level 3 — Advanced Features
+# 430. Development Order Rule
+# 431. Avoid Feature Sprawl
+# 432. Architecture Before Interface
+# 433. Backend Before Advanced Frontend Features
+# 434. Design Implementation Strategy
+# 435. Reusable Component Strategy
+# 436. Data-Driven Development
+# 437. Database-First Product Strategy
+# 438. Testing Strategy
+# 439. Development Checkpoints
+# 440. Antigravity Workflow
+# 441. Task Size Management
+# 442. Context Management Strategy
+# 443. Code Review Strategy
+# 444. Documentation Synchronization
+# 445. Production Mindset
+# 446. Final Development Strategy Principle
+# Part 5.3 — Implementation Roadmap
+# 447. Implementation Roadmap Philosophy
+# 448. Phase Overview
+# 449. Phase 1 — Project Initialization
+# 450. Phase 2 — Design System Foundation
+# 451. Phase 3 — Database and Backend Foundation
+# 452. Phase 4 — Product Catalog System
+# 453. Phase 5 — Shopping Experience
+# 454. Phase 6 — Checkout and Order System
+# 455. Phase 7 — Authentication and Customer Features
+# 456. Phase 8 — Admin Dashboard
+# 457. Phase 9 — Content Population
+# 458. Phase 10 — Optimization and Deployment
+# 459. Development Phase Rules
+# 460. Priority During Implementation
+# 461. Final Implementation Goal
+# Part 5.4 — Antigravity Task Execution Rules
+# 462. Task Execution Philosophy
+# 463. Task Understanding Requirement
+# 464. Task Preparation Process
+# 465. Task Scope Control
+# 466. Change Minimization Rule
+# 467. File Inspection Rule
+# 468. Existing Pattern Rule
+# 469. Implementation Planning Rule
+# 470. Code Generation Rules
+# 471. Component Development Rules
+# 472. Page Development Rules
+# 473. Styling Rules
+# 474. Animation Rules
+# 475. Database Change Workflow
+# 476. API Development Workflow
+# 477. Validation Rules
+# 478. Authentication Rules
+# 479. Admin Feature Rules
+# 480. Debugging Workflow
+# 481. Debugging Restrictions
+# 482. Testing After Changes
+# 483. Error Reporting
+# 484. Git and Version Control Rules
+# 485. Avoiding AI Coding Mistakes
+# 486. Handling Ambiguous Requirements
+# 487. Feature Completion Standard
+# 488. Final Antigravity Working Principle
+# Part 5.5 — Prompt & Context Management
+# 489. Context Management Philosophy
+# 490. Documentation as Persistent Context
+# 491. Documentation Reading Strategy
+# 492. Task Context Structure
+# 493. Good AI Task Example
+# 494. Bad AI Task Example
+# 495. Task Splitting Strategy
+# 496. Feature Context Rule
+# 497. Avoiding Context Overload
+# 498. Long Development Session Strategy
+# 499. Development State Tracking
+# 500. AI Session Restart Strategy
+# 501. Debugging Prompt Strategy
+# 502. Code Review Prompt Strategy
+# 503. Design Feedback Prompt Strategy
+# 504. Avoiding AI Hallucination
+# 505. Multi-Agent Workflow Consideration
+# 506. Agent Responsibility Boundaries
+# 507. Prompt Quality Rules
+# 508. Documentation Update Rule
+# 509. Final Context Management Principle
+# Part 5.7 — Final Production Checklist
+# 535. Production Readiness Philosophy
+# 536. Final Verification Process
+# 537. Project Structure Verification
+# 538. Environment Configuration Verification
+# 539. Dependency Verification
+# 540. Database Production Checklist
+# 541. Product Catalog Verification
+# 542. Product Page Verification
+# 543. Shopping Experience Verification
+# 544. Cart Verification
+# 545. Checkout Verification
+# 546. Order System Verification
+# 547. Authentication Verification
+# 548. Admin Dashboard Verification
+# 549. Localization Verification
+# 550. Mobile Experience Verification
+# 551. Performance Verification
+# 552. SEO Verification
+# 553. Accessibility Verification
+# 554. Security Verification
+# 555. Error Handling Verification
+# 556. Deployment Verification
+# 557. Portfolio Presentation Verification
+# 558. Demo Account Preparation
+# 559. Final UI Polish
+# 560. Final Performance Goal
+# 561. Completion Declaration
+# 562. Final AI Agent Instruction
+# End of Part 5

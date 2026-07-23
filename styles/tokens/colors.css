@@ -1,0 +1,54 @@
+/* Color Palette: Awwwards-Level Dark Premium */
+:root {
+  /* Core Surfaces */
+  --background: #0a0a0a;
+  --foreground: #f4f4f5;
+
+  /* Cards & Containers */
+  --card: #121212;
+  --card-foreground: #f4f4f5;
+  --popover: #18181b;
+  --popover-foreground: #f4f4f5;
+
+  /* Primary Accent — Softer Lime */
+  --primary: #d4ff26;
+  --primary-foreground: #0a0a0a;
+
+  /* Secondary */
+  --secondary: #27272a;
+  --secondary-foreground: #f4f4f5;
+
+  /* Muted */
+  --muted: #1f1f22;
+  --muted-foreground: #a1a1aa;
+
+  /* Accent (hover surfaces) */
+  --accent: #27272a;
+  --accent-foreground: #f4f4f5;
+
+  /* Destructive */
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+
+  /* Borders & Inputs */
+  --border: #27272a;
+  --input: #1f1f22;
+  --ring: #d4ff26;
+
+  /* Chart Colors */
+  --chart-1: #d4ff26;
+  --chart-2: #b8ff4d;
+  --chart-3: #4ade80;
+  --chart-4: #22d3ee;
+  --chart-5: #818cf8;
+
+  /* Sidebar */
+  --sidebar: #0f0f11;
+  --sidebar-foreground: #a1a1aa;
+  --sidebar-primary: #d4ff26;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1f1f22;
+  --sidebar-accent-foreground: #f4f4f5;
+  --sidebar-border: #27272a;
+  --sidebar-ring: #d4ff26;
+}
