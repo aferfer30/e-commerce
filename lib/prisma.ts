@@ -1,11 +1,13 @@
 import { PrismaClient } from "./generated/prisma/client";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
-import path from "path";
 
-// Hardcoded to avoid Turbopack env variable stringification quirks
-// Using process.cwd() ensures the file is found relative to the project root in Vercel Serverless
+// Safely access env var to avoid Next.js Turbopack stringification bugs during build
+const dbUrl = (typeof process !== "undefined" && process.env.DATABASE_URL) 
+  ? process.env.DATABASE_URL 
+  : "file:./ecommerce.db";
+
 const adapter = new PrismaLibSql({
-  url: `file:${path.join(process.cwd(), "ecommerce.db")}`,
+  url: dbUrl,
 });
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
