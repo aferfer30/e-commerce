@@ -1,13 +1,18 @@
 import { PrismaClient } from "./generated/prisma/client";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
 
-// Safely access env var to avoid Next.js Turbopack stringification bugs during build
-const dbUrl = (typeof process !== "undefined" && process.env.DATABASE_URL) 
-  ? process.env.DATABASE_URL 
-  : "file:./ecommerce.db";
+function getUrl(): string {
+  if (process.env.DATABASE_URL) {
+    return process.env.DATABASE_URL;
+  }
+  if (process.env.VERCEL || process.env.NODE_ENV === "production") {
+    console.error("CRITICAL ERROR: DATABASE_URL is missing in environment variables!");
+  }
+  return "file:./ecommerce.db";
+}
 
 const adapter = new PrismaLibSql({
-  url: dbUrl,
+  url: getUrl(),
 });
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
