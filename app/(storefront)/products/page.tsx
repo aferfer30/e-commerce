@@ -6,6 +6,8 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };

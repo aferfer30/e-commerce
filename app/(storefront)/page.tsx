@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { ProductGrid } from "@/components/product/ProductGrid";
 import { ProductCard } from "@/components/product/ProductCard";
 import { prisma } from "@/lib/prisma";
