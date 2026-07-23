@@ -3,6 +3,8 @@ import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
+export const dynamic = 'force-dynamic';
+
 const fontSans = Inter({
   variable: "--font-sans-next",
   subsets: ["latin"],
