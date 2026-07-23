@@ -6,7 +6,7 @@ import { WishlistButton } from "@/features/customer/components/WishlistButton";
 import type { Prisma } from "@/lib/generated/prisma/client";
 
 type ProductWithRelations = Prisma.ProductGetPayload<{
-  include: { images: true; inventory: true };
+  include: { images: true; inventory: true; category: true };
 }>;
 
 interface ProductCardProps {
@@ -85,7 +85,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="flex flex-col flex-1 p-5 pb-6 gap-3">
           <Link href={`/products/${product.slug}`} className="flex-1">
             <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest mb-1.5">
-              {product.brand}
+              {product.category?.name || product.brand}
             </p>
             <h3 className="font-display font-medium text-base leading-snug line-clamp-2 group-hover:text-primary transition-colors duration-300">
               {product.name}
