@@ -1,20 +1,27 @@
 import { PrismaClient } from "./generated/prisma/client";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
 
-function getUrl(): string {
-  const url = process.env.DATABASE_URL;
-  if (url && !url.includes("file:") && !url.includes("ecommerce.db")) {
-    return url;
+function getLibSqlConfig() {
+  const envUrl = process.env.DATABASE_URL;
+  const isLocal = !process.env.VERCEL && process.env.NODE_ENV !== "production" && (!envUrl || envUrl.includes("file:"));
+
+  if (isLocal) {
+    return { url: "file:./ecommerce.db" };
   }
-  if (process.env.VERCEL || process.env.NODE_ENV === "production") {
-    return "libsql://aferfer30-aferfer30.aws-ap-northeast-1.turso.io?authToken=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODQ4MzExNDMsImlkIjoiMDE5ZjkwMzEtNTcwMS03ZDJiLTg5M2QtNjEyNDdkYzU4ZDE4Iiwia2lkIjoiR3ViaGZ2SzVWa1NIUF9RWVBwVlJNLWYwVGNoZEViRUdIR20zOHV1bXdyYyIsInJpZCI6IjJkNTRlNmE5LTgwYjAtNDUxYS04YTU3LTdjYWE3YTcxZDQ4NCJ9.MaYZxE0jaCxoaDurTDHlI6XA7XIGwhkKvYXvwauj6uobKxa6f1WwrwBaggFi0JtIL03DD5mXtDVOkQvTFO34Dw";
+
+  const rawUrl = (envUrl && !envUrl.includes("file:") && !envUrl.includes("ecommerce.db"))
+    ? envUrl
+    : "libsql://aferfer30-aferfer30.aws-ap-northeast-1.turso.io?authToken=eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODQ4MzExNDMsImlkIjoiMDE5ZjkwMzEtNTcwMS03ZDJiLTg5M2QtNjEyNDdkYzU4ZDE4Iiwia2lkIjoiR3ViaGZ2SzVWa1NIUF9RWVBwVlJNLWYwVGNoZEViRUdIR20zOHV1bXdyYyIsInJpZCI6IjJkNTRlNmE5LTgwYjAtNDUxYS04YTU3LTdjYWE3YTcxZDQ4NCJ9.MaYZxE0jaCxoaDurTDHlI6XA7XIGwhkKvYXvwauj6uobKxa6f1WwrwBaggFi0JtIL03DD5mXtDVOkQvTFO34Dw";
+
+  if (rawUrl.includes("?authToken=")) {
+    const [url, authToken] = rawUrl.split("?authToken=");
+    return { url, authToken };
   }
-  return "file:./ecommerce.db";
+
+  return { url: rawUrl };
 }
 
-const adapter = new PrismaLibSql({
-  url: getUrl(),
-});
+const adapter = new PrismaLibSql(getLibSqlConfig());
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
