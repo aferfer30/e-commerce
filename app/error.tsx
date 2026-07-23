@@ -22,15 +22,21 @@ export default function GlobalError({
       <div className="bg-destructive/10 p-4 rounded-full mb-6">
         <AlertCircle className="h-12 w-12 text-destructive" />
       </div>
-      <h2 className="text-3xl font-bold tracking-tight mb-4">Something went wrong!</h2>
+      <h2 className="text-3xl font-bold tracking-tight mb-4">
+        Something went wrong!
+      </h2>
       <p className="text-muted-foreground max-w-md mb-8">
-        We apologize for the inconvenience. An unexpected error has occurred on our end.
+        We apologize for the inconvenience. An unexpected error has occurred on
+        our end.
       </p>
       <div className="flex flex-col sm:flex-row gap-4">
         <Button onClick={() => reset()} size="lg">
           Try again
         </Button>
-        <Link href="/" className={buttonVariants({ variant: "outline", size: "lg" })}>
+        <Link
+          href="/"
+          className={buttonVariants({ variant: "outline", size: "lg" })}
+        >
           Return Home
         </Link>
       </div>

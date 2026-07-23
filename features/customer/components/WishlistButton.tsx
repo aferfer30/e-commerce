@@ -3,7 +3,10 @@
 import { useState, useTransition, useEffect } from "react";
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toggleWishlistItem, checkIsWishlisted } from "@/features/customer/actions";
+import {
+  toggleWishlistItem,
+  checkIsWishlisted,
+} from "@/features/customer/actions";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -14,7 +17,11 @@ interface WishlistButtonProps {
   className?: string;
 }
 
-export function WishlistButton({ productId, isInitialAdded = false, className }: WishlistButtonProps) {
+export function WishlistButton({
+  productId,
+  isInitialAdded = false,
+  className,
+}: WishlistButtonProps) {
   const [isPending, startTransition] = useTransition();
   const [isAdded, setIsAdded] = useState(isInitialAdded);
   const router = useRouter();
@@ -29,7 +36,7 @@ export function WishlistButton({ productId, isInitialAdded = false, className }:
 
     // Optimistic update
     setIsAdded(!isAdded);
-    
+
     startTransition(async () => {
       const result = await toggleWishlistItem(productId);
       if (result.error) {
@@ -53,15 +60,22 @@ export function WishlistButton({ productId, isInitialAdded = false, className }:
   }
 
   return (
-    <Button 
-      variant="outline" 
-      size="icon" 
+    <Button
+      variant="outline"
+      size="icon"
       onClick={onClick}
       disabled={isPending}
-      className={cn("shrink-0", className, isAdded && "text-red-500 border-red-200 hover:text-red-600 hover:bg-red-50")}
+      className={cn(
+        "shrink-0",
+        className,
+        isAdded &&
+          "text-red-500 border-red-200 hover:text-red-600 hover:bg-red-50",
+      )}
     >
       <Heart className={cn("h-5 w-5", isAdded && "fill-current")} />
-      <span className="sr-only">{isAdded ? "Remove from wishlist" : "Add to wishlist"}</span>
+      <span className="sr-only">
+        {isAdded ? "Remove from wishlist" : "Add to wishlist"}
+      </span>
     </Button>
   );
 }

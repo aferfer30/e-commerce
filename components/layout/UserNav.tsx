@@ -33,7 +33,9 @@ export function UserNav({ user }: UserNavProps) {
       <DropdownMenuTrigger className="relative h-10 w-10 rounded-full hover:opacity-80 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-ring">
         <Avatar className="h-10 w-10">
           <AvatarImage src={user.image || ""} alt={user.name || "User"} />
-          <AvatarFallback>{user.name?.charAt(0) || <UserIcon className="h-5 w-5" />}</AvatarFallback>
+          <AvatarFallback>
+            {user.name?.charAt(0) || <UserIcon className="h-5 w-5" />}
+          </AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end">
@@ -47,21 +49,33 @@ export function UserNav({ user }: UserNavProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={() => router.push('/profile')} className="cursor-pointer">
+          <DropdownMenuItem
+            onClick={() => router.push("/profile")}
+            className="cursor-pointer"
+          >
             <UserIcon className="mr-2 h-4 w-4" />
             <span>Profile</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push('/orders')} className="cursor-pointer">
+          <DropdownMenuItem
+            onClick={() => router.push("/orders")}
+            className="cursor-pointer"
+          >
             <Package className="mr-2 h-4 w-4" />
             <span>Orders</span>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push('/wishlist')} className="cursor-pointer">
+          <DropdownMenuItem
+            onClick={() => router.push("/wishlist")}
+            className="cursor-pointer"
+          >
             <Heart className="mr-2 h-4 w-4" />
             <span>Wishlist</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer text-destructive focus:text-destructive">
+        <DropdownMenuItem
+          onClick={() => signOut()}
+          className="cursor-pointer text-destructive focus:text-destructive"
+        >
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

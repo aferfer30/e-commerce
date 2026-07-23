@@ -28,37 +28,37 @@ const accessorySpecs = [
 const laptopImages = [
   "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=800",
   "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=800"
+  "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&q=80&w=800",
 ];
 
 const audioImages = [
   "https://images.unsplash.com/photo-1605464315542-bda3e2f4e605?auto=format&fit=crop&q=80&w=800",
   "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=800"
+  "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&q=80&w=800",
 ];
 
 const accessoryImages = [
   "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&q=80&w=800",
   "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&q=80&w=800",
-  "https://images.unsplash.com/photo-1587826227038-0387b9ce052c?auto=format&fit=crop&q=80&w=800"
+  "https://images.unsplash.com/photo-1587826227038-0387b9ce052c?auto=format&fit=crop&q=80&w=800",
 ];
 
 async function main() {
   console.log("Updating product specs and images...");
-  
+
   const products = await prisma.product.findMany({
-    include: { category: true }
+    include: { category: true },
   });
 
   for (const product of products) {
     // Delete old generic specs
     await prisma.productSpecification.deleteMany({
-      where: { productId: product.id }
+      where: { productId: product.id },
     });
 
     let specs = [];
     let images = [];
-    
+
     if (product.category.slug === "laptops") {
       specs = laptopSpecs;
       images = laptopImages;
@@ -76,8 +76,8 @@ async function main() {
         data: {
           productId: product.id,
           name: spec.name,
-          value: spec.value
-        }
+          value: spec.value,
+        },
       });
     }
 
@@ -85,7 +85,7 @@ async function main() {
     // to give them a "gallery" feel.
     // First, let's delete existing images so we don't duplicate
     await prisma.productImage.deleteMany({
-      where: { productId: product.id }
+      where: { productId: product.id },
     });
 
     // We'll give each product 3 images from its category pool
@@ -95,8 +95,8 @@ async function main() {
           productId: product.id,
           url: images[i],
           isPrimary: i === 0,
-          order: i
-        }
+          order: i,
+        },
       });
     }
 
@@ -107,7 +107,7 @@ async function main() {
 }
 
 main()
-  .catch(e => {
+  .catch((e) => {
     console.error(e);
     process.exit(1);
   })

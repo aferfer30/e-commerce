@@ -1,8 +1,14 @@
-import '../../styles/admin.css';
+import "../../styles/admin.css";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { LayoutDashboard, Package, ShoppingCart, BarChart, ArrowLeft } from "lucide-react";
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingCart,
+  BarChart,
+  ArrowLeft,
+} from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { AdminNavLink } from "@/components/AdminNavLink";
 
@@ -24,7 +30,12 @@ export default async function AdminLayout({
   }
 
   const initials = session.user.name
-    ? session.user.name.split(" ").map((n: string) => n[0]).join("").toUpperCase().slice(0, 2)
+    ? session.user.name
+        .split(" ")
+        .map((n: string) => n[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2)
     : "A";
 
   return (
@@ -33,16 +44,25 @@ export default async function AdminLayout({
       <aside className="w-60 bg-[#0a0a0a] border-r border-[#1a1a1a] flex flex-col fixed inset-y-0 z-20">
         {/* Logo */}
         <div className="h-14 flex items-center px-5 border-b border-[#1a1a1a]">
-          <Link href="/admin" className="font-display font-bold text-base tracking-tight">
+          <Link
+            href="/admin"
+            className="font-display font-bold text-base tracking-tight"
+          >
             Nova<span className="text-primary">Tech</span>
-            <span className="ml-2 text-[10px] font-medium text-muted-foreground bg-muted/50 rounded px-1.5 py-0.5 align-middle">ADMIN</span>
+            <span className="ml-2 text-[10px] font-medium text-muted-foreground bg-muted/50 rounded px-1.5 py-0.5 align-middle">
+              ADMIN
+            </span>
           </Link>
         </div>
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-4 flex flex-col gap-0.5">
           {navItems.map(({ href, icon: Icon, label }) => (
-            <AdminNavLink key={href} href={href} icon={<Icon className="h-4 w-4 shrink-0" />}>
+            <AdminNavLink
+              key={href}
+              href={href}
+              icon={<Icon className="h-4 w-4 shrink-0" />}
+            >
               {label}
             </AdminNavLink>
           ))}
@@ -69,11 +89,17 @@ export default async function AdminLayout({
         <div className="absolute inset-0 bg-gradient-to-br from-transparent to-background/90 z-0 pointer-events-none" />
         {/* Top Bar */}
         <header className="h-14 bg-background/80 backdrop-blur-xl border-b border-border/50 flex items-center justify-between px-6 sticky top-0 z-20">
-          <p className="text-xs text-muted-foreground font-medium tracking-wide uppercase">Admin Portal</p>
+          <p className="text-xs text-muted-foreground font-medium tracking-wide uppercase">
+            Admin Portal
+          </p>
           <div className="flex items-center gap-3">
             <div className="text-right">
-              <p className="text-sm font-medium leading-none text-foreground">{session.user.name}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{session.user.email}</p>
+              <p className="text-sm font-medium leading-none text-foreground">
+                {session.user.name}
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {session.user.email}
+              </p>
             </div>
             <Avatar className="h-7 w-7 ring-2 ring-primary/30 shadow-glow-sm">
               <AvatarImage src={session.user.image || ""} />
@@ -85,9 +111,7 @@ export default async function AdminLayout({
         </header>
 
         {/* Page Content */}
-        <main className="relative z-10 flex-1 p-6 md:p-8">
-          {children}
-        </main>
+        <main className="relative z-10 flex-1 p-6 md:p-8">{children}</main>
       </div>
     </div>
   );

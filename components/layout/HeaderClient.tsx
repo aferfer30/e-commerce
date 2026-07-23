@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { Container } from "./Container";
@@ -45,10 +45,7 @@ export function HeaderClient({ userNav, isLoggedIn }: HeaderClientProps) {
         <Container>
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center gap-2 group"
-            >
+            <Link href="/" className="flex items-center gap-2 group">
               <span className="text-xl font-display font-bold tracking-tight transition-colors group-hover:text-primary">
                 Nova<span className="text-primary">Tech</span>
               </span>
@@ -91,7 +88,11 @@ export function HeaderClient({ userNav, isLoggedIn }: HeaderClientProps) {
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                {mobileOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>
@@ -101,7 +102,9 @@ export function HeaderClient({ userNav, isLoggedIn }: HeaderClientProps) {
       {/* Mobile Nav Drawer */}
       <div
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         <div
@@ -125,11 +128,17 @@ export function HeaderClient({ userNav, isLoggedIn }: HeaderClientProps) {
             ))}
             <div className="mt-4 pt-4 border-t border-border">
               {isLoggedIn ? (
-                <Link href="/orders" className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-md transition-all block">
+                <Link
+                  href="/orders"
+                  className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 rounded-md transition-all block"
+                >
                   My Orders
                 </Link>
               ) : (
-                <Link href="/login" className="block w-full text-center px-4 py-2 rounded-md bg-primary text-primary-foreground font-semibold text-sm">
+                <Link
+                  href="/login"
+                  className="block w-full text-center px-4 py-2 rounded-md bg-primary text-primary-foreground font-semibold text-sm"
+                >
                   Sign In
                 </Link>
               )}

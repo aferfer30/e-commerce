@@ -10,7 +10,8 @@ export default function NotFound() {
       </div>
       <h2 className="text-3xl font-bold tracking-tight mb-4">Page Not Found</h2>
       <p className="text-muted-foreground max-w-md mb-8">
-        We couldn't find the page you're looking for. It might have been removed, renamed, or didn't exist in the first place.
+        We couldn&apos;t find the page you&apos;re looking for. It might have been
+        removed, renamed, or didn&apos;t exist in the first place.
       </p>
       <Link href="/" className={buttonVariants({ size: "lg" })}>
         Return to Storefront

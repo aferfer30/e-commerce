@@ -1,7 +1,7 @@
 "use client";
 
-import '../../styles/admin.css';
-import React from 'react';
+import "../../styles/admin.css";
+import React from "react";
 
 interface AdminRootProps {
   children: React.ReactNode;

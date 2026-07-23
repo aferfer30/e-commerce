@@ -1,5 +1,5 @@
-import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export interface CartItem {
   id: string;
@@ -13,7 +13,7 @@ export interface CartItem {
 
 interface CartStore {
   items: CartItem[];
-  addItem: (item: Omit<CartItem, 'quantity'>) => void;
+  addItem: (item: Omit<CartItem, "quantity">) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
@@ -36,14 +36,14 @@ export const useCart = create<CartStore>()(
         if (existingItem) {
           set({
             items: currentItems.map((i) =>
-              i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+              i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i,
             ),
             isOpen: true,
           });
         } else {
-          set({ 
+          set({
             items: [...currentItems, { ...item, quantity: 1 }],
-            isOpen: true 
+            isOpen: true,
           });
         }
       },
@@ -54,7 +54,7 @@ export const useCart = create<CartStore>()(
         if (quantity < 1) return;
         set({
           items: get().items.map((item) =>
-            item.id === id ? { ...item, quantity } : item
+            item.id === id ? { ...item, quantity } : item,
           ),
         });
       },
@@ -62,7 +62,7 @@ export const useCart = create<CartStore>()(
       getCartTotal: () => {
         return get().items.reduce(
           (total, item) => total + item.price * item.quantity,
-          0
+          0,
         );
       },
       getItemCount: () => {
@@ -72,9 +72,9 @@ export const useCart = create<CartStore>()(
       closeDrawer: () => set({ isOpen: false }),
     }),
     {
-      name: 'novatech-cart-storage',
+      name: "novatech-cart-storage",
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ items: state.items }), // Only persist items
-    }
-  )
+    },
+  ),
 );

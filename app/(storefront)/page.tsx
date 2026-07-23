@@ -8,7 +8,8 @@ import { FadeIn } from "@/components/ui/fade-in";
 const categories = [
   {
     label: "Laptops",
-    description: "Pro-grade performance machines for elite developers and creators.",
+    description:
+      "Pro-grade performance machines for elite developers and creators.",
     href: "/products?category=laptops",
     accent: "from-primary/10 to-transparent",
     span: "md:col-span-8 md:row-span-2",
@@ -50,7 +51,7 @@ export default async function Home() {
         {/* Background layers */}
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="absolute inset-0 bg-noise pointer-events-none z-50 mix-blend-overlay opacity-[0.1]" />
-        
+
         {/* Ethereal Glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
@@ -78,8 +79,8 @@ export default async function Home() {
           <FadeIn delay={0.3}>
             {/* Subline */}
             <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-              Discover our curated collection of premium laptops, audio gear, and accessories —
-              designed to elevate your professional workflow.
+              Discover our curated collection of premium laptops, audio gear,
+              and accessories — designed to elevate your professional workflow.
             </p>
           </FadeIn>
 
@@ -90,19 +91,26 @@ export default async function Home() {
                 href="/products"
                 className="group relative inline-flex items-center gap-4 pl-8 pr-2 py-2 bg-primary text-primary-foreground font-semibold text-sm rounded-full active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] glow-primary hover:shadow-[0_0_40px_rgba(232,255,71,0.5)]"
               >
-                <span className="uppercase tracking-widest text-[10px] font-bold">Shop Catalog</span>
+                <span className="uppercase tracking-widest text-[10px] font-bold">
+                  Shop Catalog
+                </span>
                 <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                   <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
                 </div>
               </Link>
-              
+
               <Link
                 href="/products?category=laptops"
                 className="group relative inline-flex items-center gap-4 pl-8 pr-2 py-2 bg-white/[0.02] border border-border/50 text-foreground font-semibold text-sm rounded-full active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/5 hover:border-primary/30"
               >
-                <span className="uppercase tracking-widest text-[10px] font-bold">View Laptops</span>
+                <span className="uppercase tracking-widest text-[10px] font-bold">
+                  View Laptops
+                </span>
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" strokeWidth={1.5} />
+                  <ArrowRight
+                    className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </Link>
             </div>
@@ -115,28 +123,44 @@ export default async function Home() {
         <FadeIn>
           <div className="mb-16">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
-              <span className="text-[10px] font-bold text-muted-foreground tracking-[0.2em] uppercase">Collections</span>
+              <span className="text-[10px] font-bold text-muted-foreground tracking-[0.2em] uppercase">
+                Collections
+              </span>
             </div>
-            <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tighter mb-4">Shop by Category</h2>
+            <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tighter mb-4">
+              Shop by Category
+            </h2>
           </div>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-6 md:h-[500px]">
           {categories.map((cat, i) => (
-            <FadeIn key={cat.label} delay={i * 0.1} className={`${cat.span} h-full`}>
+            <FadeIn
+              key={cat.label}
+              delay={i * 0.1}
+              className={`${cat.span} h-full`}
+            >
               <Link
                 href={cat.href}
                 className={`block h-full w-full group relative p-2 bg-white/[0.02] border border-border/50 rounded-[2rem] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-primary/30 hover:shadow-glow hover:-translate-y-2`}
               >
-                <div className={`flex flex-col justify-end h-full bg-card shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] rounded-[calc(2rem-0.5rem)] overflow-hidden relative p-8 bg-gradient-to-br ${cat.accent}`}>
+                <div
+                  className={`flex flex-col justify-end h-full bg-card shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] rounded-[calc(2rem-0.5rem)] overflow-hidden relative p-8 bg-gradient-to-br ${cat.accent}`}
+                >
                   <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none mix-blend-overlay" />
                   <div className="relative z-10">
                     <h3 className="font-display text-3xl sm:text-4xl font-bold mb-3 group-hover:text-primary transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                       {cat.label}
                     </h3>
-                    <p className="text-sm text-muted-foreground mb-8 max-w-sm font-light leading-relaxed">{cat.description}</p>
+                    <p className="text-sm text-muted-foreground mb-8 max-w-sm font-light leading-relaxed">
+                      {cat.description}
+                    </p>
                     <div className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-foreground group-hover:text-primary transition-colors">
-                      Browse <ArrowRight className="h-3 w-3 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-2" strokeWidth={2} />
+                      Browse{" "}
+                      <ArrowRight
+                        className="h-3 w-3 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-2"
+                        strokeWidth={2}
+                      />
                     </div>
                   </div>
                 </div>
@@ -152,15 +176,23 @@ export default async function Home() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-6">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 mb-6">
-                <span className="text-[10px] font-bold text-muted-foreground tracking-[0.2em] uppercase">Featured</span>
+                <span className="text-[10px] font-bold text-muted-foreground tracking-[0.2em] uppercase">
+                  Featured
+                </span>
               </div>
-              <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tighter mb-2">Handpicked Gear</h2>
+              <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tighter mb-2">
+                Handpicked Gear
+              </h2>
             </div>
             <Link
               href="/products"
               className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-muted-foreground hover:text-primary transition-colors"
             >
-              View Vault <ArrowRight className="h-3 w-3 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1" strokeWidth={2} />
+              View Vault{" "}
+              <ArrowRight
+                className="h-3 w-3 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1"
+                strokeWidth={2}
+              />
             </Link>
           </div>
         </FadeIn>
@@ -171,8 +203,12 @@ export default async function Home() {
               <div className="absolute inset-0 bg-noise opacity-[0.02]" />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/5 blur-[100px] rounded-full pointer-events-none opacity-50" />
               <div className="text-center relative z-10">
-                <h3 className="font-display text-3xl font-bold mb-4">Curating Excellence</h3>
-                <p className="text-muted-foreground">The vault will open soon.</p>
+                <h3 className="font-display text-3xl font-bold mb-4">
+                  Curating Excellence
+                </h3>
+                <p className="text-muted-foreground">
+                  The vault will open soon.
+                </p>
               </div>
             </div>
           </FadeIn>
@@ -195,11 +231,18 @@ export default async function Home() {
               <FadeIn key={label} delay={i * 0.1}>
                 <div className="flex flex-col items-center text-center gap-5 group">
                   <div className="w-20 h-20 rounded-[1.5rem] bg-white/[0.02] border border-white/10 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-primary/10 group-hover:border-primary/30 group-hover:shadow-glow-sm group-hover:-translate-y-2">
-                    <Icon className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-500" strokeWidth={1} />
+                    <Icon
+                      className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-500"
+                      strokeWidth={1}
+                    />
                   </div>
                   <div>
-                    <p className="text-base font-bold font-display tracking-wide">{label}</p>
-                    <p className="text-[10px] text-muted-foreground mt-2 uppercase tracking-widest">{desc}</p>
+                    <p className="text-base font-bold font-display tracking-wide">
+                      {label}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground mt-2 uppercase tracking-widest">
+                      {desc}
+                    </p>
                   </div>
                 </div>
               </FadeIn>

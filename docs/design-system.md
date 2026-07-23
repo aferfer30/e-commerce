@@ -15,6 +15,7 @@ All design tokens are defined as CSS variables to remain the primary source of t
 ### Token Usage in Tailwind
 
 Since Tailwind v4 uses CSS variables intrinsically, you can use these tokens directly via utility classes. For example:
+
 - `bg-primary` utilizes `--primary`
 - `text-muted-foreground` utilizes `--muted-foreground`
 - `rounded-[var(--radius)]` or `rounded-md` (configured in `@theme`)
@@ -34,7 +35,8 @@ Since Tailwind v4 uses CSS variables intrinsically, you can use these tokens dir
 
 ## 4. shadcn/ui Customization Rules
 
-We use the "New York" style with a "Neutral" base. Our token overrides in `colors.css` and `@theme` integrations inject our custom premium e-commerce palette into the shadcn components automatically. 
+We use the "New York" style with a "Neutral" base. Our token overrides in `colors.css` and `@theme` integrations inject our custom premium e-commerce palette into the shadcn components automatically.
+
 - Primary buttons will use the electric blue accent.
 - Cards will use the near-black backgrounds with subtle borders.
 

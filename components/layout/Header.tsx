@@ -15,7 +15,8 @@ export async function Header() {
       className={buttonVariants({
         variant: "ghost",
         size: "sm",
-        className: "hidden lg:inline-flex text-muted-foreground hover:text-foreground text-sm font-medium",
+        className:
+          "hidden lg:inline-flex text-muted-foreground hover:text-foreground text-sm font-medium",
       })}
     >
       Sign In

@@ -56,5 +56,5 @@ export const ALGERIAN_WILAYAS = [
   "55 - Touggourt",
   "56 - Djanet",
   "57 - El M'Ghair",
-  "58 - El Meniaa"
+  "58 - El Meniaa",
 ];

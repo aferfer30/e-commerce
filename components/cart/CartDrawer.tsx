@@ -28,11 +28,13 @@ export function CartDrawer() {
   const total = getCartTotal();
   const itemCount = getItemCount();
 
-  const formattedTotal = new Intl.NumberFormat('fr-DZ', { 
-    style: 'currency', 
-    currency: 'DZD',
-    minimumFractionDigits: 0
-  }).format(total).replace('DZD', 'DA');
+  const formattedTotal = new Intl.NumberFormat("fr-DZ", {
+    style: "currency",
+    currency: "DZD",
+    minimumFractionDigits: 0,
+  })
+    .format(total)
+    .replace("DZD", "DA");
 
   if (!isMounted) return null;
 
@@ -45,9 +47,9 @@ export function CartDrawer() {
             Cart ({itemCount})
           </SheetTitle>
         </SheetHeader>
-        
+
         <Separator className="mt-4" />
-        
+
         {items.length > 0 ? (
           <>
             <ScrollArea className="flex-1 px-4 sm:px-6">
@@ -60,7 +62,7 @@ export function CartDrawer() {
                 ))}
               </div>
             </ScrollArea>
-            
+
             <div className="px-4 sm:px-6 pt-4 pb-6 space-y-4">
               <div className="flex items-center justify-between text-base font-medium">
                 <p>Subtotal</p>
@@ -70,12 +72,19 @@ export function CartDrawer() {
                 Shipping and taxes calculated at checkout.
               </p>
               <SheetFooter className="mt-4 flex-col sm:flex-col gap-2">
-                <Link href="/checkout" onClick={closeDrawer} className={buttonVariants({ size: "lg", className: "w-full" })}>
+                <Link
+                  href="/checkout"
+                  onClick={closeDrawer}
+                  className={buttonVariants({
+                    size: "lg",
+                    className: "w-full",
+                  })}
+                >
                   Checkout
                 </Link>
-                <Button 
-                  variant="outline" 
-                  className="w-full" 
+                <Button
+                  variant="outline"
+                  className="w-full"
                   size="lg"
                   onClick={closeDrawer}
                 >
@@ -92,7 +101,7 @@ export function CartDrawer() {
             <div className="text-center">
               <h3 className="font-semibold text-lg">Your cart is empty</h3>
               <p className="text-sm text-muted-foreground mt-1 mb-4">
-                Looks like you haven't added anything to your cart yet.
+                Looks like you haven&apos;t added anything to your cart yet.
               </p>
               <Button onClick={closeDrawer}>Explore Products</Button>
             </div>

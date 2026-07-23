@@ -9,4 +9,3 @@ export const config = {
 };
 
 // Note: The authorized callback inside auth.config.ts now uses NextResponse for redirects.
-

@@ -107,7 +107,11 @@ export function RegisterForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full h-11 mt-4" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          className="w-full h-11 mt-4"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

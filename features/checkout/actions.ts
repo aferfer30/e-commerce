@@ -28,18 +28,19 @@ export async function createOrder(payload: CheckoutPayload) {
     // 3. We should ideally verify prices against the DB, but for simplicity
     // and speed in this portfolio project, we use the passed prices or recalculate.
     // Let's fetch actual prices to prevent tampering.
-    const productIds = payload.items.map(item => item.productId);
+    const productIds = payload.items.map((item) => item.productId);
     const dbProducts = await prisma.product.findMany({
-      where: { id: { in: productIds } }
+      where: { id: { in: productIds } },
     });
 
     let calculatedTotal = 0;
-    const orderItemsToCreate = payload.items.map(clientItem => {
-      const dbProduct = dbProducts.find(p => p.id === clientItem.productId);
-      if (!dbProduct) throw new Error(`Product ${clientItem.productId} not found`);
-      
-      const price = dbProduct.discount 
-        ? dbProduct.price * (1 - dbProduct.discount / 100) 
+    const orderItemsToCreate = payload.items.map((clientItem) => {
+      const dbProduct = dbProducts.find((p) => p.id === clientItem.productId);
+      if (!dbProduct)
+        throw new Error(`Product ${clientItem.productId} not found`);
+
+      const price = dbProduct.discount
+        ? dbProduct.price * (1 - dbProduct.discount / 100)
         : dbProduct.price;
 
       calculatedTotal += price * clientItem.quantity;
@@ -64,14 +65,17 @@ export async function createOrder(payload: CheckoutPayload) {
         subtotal: calculatedTotal,
         total: calculatedTotal,
         items: {
-          create: orderItemsToCreate
-        }
-      }
+          create: orderItemsToCreate,
+        },
+      },
     });
 
     return { success: true, orderId: order.id };
   } catch (error) {
     console.error("Order creation failed:", error);
-    return { success: false, error: "Failed to create order. Please try again." };
+    return {
+      success: false,
+      error: "Failed to create order. Please try again.",
+    };
   }
 }

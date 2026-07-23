@@ -20,14 +20,19 @@ export default async function ProfilePage() {
   return (
     <>
       <SeoHead title="My Profile" description="Manage your NovaTech account." />
-      <AccountLayout user={{ name: user.name, email: user.email }} title="Personal Information">
+      <AccountLayout
+        user={{ name: user.name, email: user.email }}
+        title="Personal Information"
+      >
         <AnimatedPage>
           <div className="bg-card/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 md:p-10 relative overflow-hidden group">
             {/* Ambient Background Glow */}
             <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 blur-[100px] rounded-full pointer-events-none group-hover:opacity-100 opacity-50 transition-opacity duration-700" />
-            
+
             <div className="relative z-10">
-              <h2 className="font-display text-xl font-bold mb-8">Edit Profile</h2>
+              <h2 className="font-display text-xl font-bold mb-8">
+                Edit Profile
+              </h2>
               <ProfileForm user={user} />
             </div>
           </div>

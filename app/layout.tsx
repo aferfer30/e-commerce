@@ -19,10 +19,12 @@ export const metadata: Metadata = {
     template: "%s | NovaTech",
     default: "NovaTech - Premium E-Commerce",
   },
-  description: "Discover premium technology, laptops, audio gear, and accessories for the modern professional.",
+  description:
+    "Discover premium technology, laptops, audio gear, and accessories for the modern professional.",
   openGraph: {
     title: "NovaTech - Premium E-Commerce",
-    description: "Discover premium technology, laptops, audio gear, and accessories.",
+    description:
+      "Discover premium technology, laptops, audio gear, and accessories.",
     url: "https://novatech.com",
     siteName: "NovaTech",
     locale: "en_US",
@@ -31,8 +33,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "NovaTech - Premium E-Commerce",
-    description: "Discover premium technology, laptops, audio gear, and accessories.",
-  }
+    description:
+      "Discover premium technology, laptops, audio gear, and accessories.",
+  },
 };
 
 export default function RootLayout({

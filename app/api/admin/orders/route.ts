@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { OrderStatus } from '@/lib/generated/prisma/enums';
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { OrderStatus } from "@/lib/generated/prisma/enums";
 
-export const dynamic = 'force-dynamic'; // always up-to-date
+export const dynamic = "force-dynamic"; // always up-to-date
 
 /**
  * GET /api/admin/orders
@@ -13,9 +13,9 @@ export const dynamic = 'force-dynamic'; // always up-to-date
  */
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const page = Number(url.searchParams.get('page') ?? '1');
-  const limit = Number(url.searchParams.get('limit') ?? '20');
-  const status = url.searchParams.get('status') as OrderStatus | null;
+  const page = Number(url.searchParams.get("page") ?? "1");
+  const limit = Number(url.searchParams.get("limit") ?? "20");
+  const status = url.searchParams.get("status") as OrderStatus | null;
 
   const where = status ? { status } : {};
 
@@ -31,7 +31,7 @@ export async function GET(req: Request) {
         items: { include: { product: true } },
         coupon: true,
       },
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: "desc" },
     }),
   ]);
 
@@ -44,13 +44,13 @@ export async function GET(req: Request) {
  */
 export async function PATCH(req: Request) {
   const url = new URL(req.url);
-  const id = url.pathname.split('/').pop();
+  const id = url.pathname.split("/").pop();
   if (!id) {
-    return NextResponse.json({ error: 'Order ID missing' }, { status: 400 });
+    return NextResponse.json({ error: "Order ID missing" }, { status: 400 });
   }
   const { status } = await req.json();
   if (!status) {
-    return NextResponse.json({ error: 'Status missing' }, { status: 400 });
+    return NextResponse.json({ error: "Status missing" }, { status: 400 });
   }
   try {
     const order = await prisma.order.update({
@@ -59,6 +59,9 @@ export async function PATCH(req: Request) {
     });
     return NextResponse.json(order);
   } catch (e) {
-    return NextResponse.json({ error: 'Update failed', details: (e as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { error: "Update failed", details: (e as Error).message },
+      { status: 500 },
+    );
   }
 }

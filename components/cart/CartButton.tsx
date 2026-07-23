@@ -17,13 +17,16 @@ export function CartButton() {
   const itemCount = getItemCount();
 
   return (
-    <Button variant="ghost" size="icon" className="relative" onClick={openDrawer}>
+    <Button
+      variant="ghost"
+      size="icon"
+      className="relative"
+      onClick={openDrawer}
+    >
       <ShoppingBag className="h-5 w-5" />
       <span className="sr-only">Cart</span>
       {isMounted && itemCount > 0 && (
-        <Badge 
-          className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-[10px] bg-primary text-primary-foreground border-2 border-background"
-        >
+        <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-[10px] bg-primary text-primary-foreground border-2 border-background">
           {itemCount}
         </Badge>
       )}

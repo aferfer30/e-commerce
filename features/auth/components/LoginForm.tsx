@@ -53,7 +53,7 @@ export function LoginForm() {
         toast.error(result.error);
       } else {
         toast.success("Logged in successfully!");
-        // The redirect is usually handled by NextAuth in the server action, 
+        // The redirect is usually handled by NextAuth in the server action,
         // but if we reach here we might need to refresh to get session state.
         router.refresh();
       }
@@ -93,7 +93,11 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full h-11 mt-4" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          className="w-full h-11 mt-4"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

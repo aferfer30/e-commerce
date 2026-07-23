@@ -83,10 +83,9 @@ export function CheckoutForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Shipping Information</h2>
-          
+
           <FormField
             control={form.control}
             name="customerName"
@@ -147,7 +146,10 @@ export function CheckoutForm() {
               <FormItem>
                 <FormLabel>Detailed Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Street, Building, Apartment..." {...field} />
+                  <Input
+                    placeholder="Street, Building, Apartment..."
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -157,13 +159,17 @@ export function CheckoutForm() {
 
         <div className="space-y-4 pt-4 border-t border-border">
           <h2 className="text-xl font-semibold">Payment Method</h2>
-          
+
           <FormField
             control={form.control}
             name="paymentMethod"
             render={({ field }) => (
               <FormItem>
-                <Select disabled onValueChange={field.onChange} value={field.value}>
+                <Select
+                  disabled
+                  onValueChange={field.onChange}
+                  value={field.value}
+                >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="Select Payment Method" />
@@ -174,7 +180,8 @@ export function CheckoutForm() {
                   </SelectContent>
                 </Select>
                 <p className="text-sm text-muted-foreground mt-2">
-                  Currently, we only support Cash on Delivery. You will pay when you receive your order.
+                  Currently, we only support Cash on Delivery. You will pay when
+                  you receive your order.
                 </p>
                 <FormMessage />
               </FormItem>
@@ -182,9 +189,9 @@ export function CheckoutForm() {
           />
         </div>
 
-        <Button 
-          type="submit" 
-          size="lg" 
+        <Button
+          type="submit"
+          size="lg"
           className="w-full h-12 text-base font-semibold mt-8"
           disabled={isSubmitting || items.length === 0}
         >

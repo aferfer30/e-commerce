@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NovaTech E-Commerce Architecture
 
-## Getting Started
+NovaTech is a modern, high-performance e-commerce platform built with strict adherence to contemporary web development standards. This repository contains the complete source code for both the customer-facing storefront and the secure administrative dashboard.
 
-First, run the development server:
+## Technical Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS & Vanilla CSS (Custom Design System)
+- **UI Components**: Base UI & Radix UI primitives
+- **Animations**: Framer Motion
+- **Database ORM**: Prisma
+- **Database Engine**: SQLite (Development)
+- **Authentication**: NextAuth.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## System Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Customer Storefront
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The storefront is optimized for conversion and performance, featuring a responsive, glassmorphic design system. Key capabilities include:
 
-## Learn More
+- Server-Side Rendered (SSR) product catalogs for optimal SEO.
+- Fluid, client-side route transitions and staggered entry animations.
+- Dynamic cart state management via Zustand.
+- Authenticated user profiles, secure order history, and persistent wishlists.
 
-To learn more about Next.js, take a look at the following resources:
+### Administrative Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The administrative interface is isolated from the storefront routing and is protected by role-based access controls. Key capabilities include:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Real-time inventory management and product CRUD operations.
+- Order fulfillment tracking and status mutation.
+- System analytics and revenue monitoring.
 
-## Deploy on Vercel
+## Local Development Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ensure you have Node.js (v18+) and npm installed on your system before proceeding.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+2. **Initialize the database**
+
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+3. **Seed the database**
+   Execute the seeding script to populate the development database with the required administrative user and initial product catalog.
+
+   ```bash
+   npm run prisma db seed
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+The storefront will be available at `http://localhost:3000`.
+The administrative dashboard is accessible at `http://localhost:3000/admin`.
+
+## Deployment
+
+This application is designed to be deployed on Vercel or any standard Node.js hosting environment. For production deployment:
+
+1. Provision a PostgreSQL database and update the `DATABASE_URL` environment variable.
+2. Configure OAuth providers and secure secret keys for NextAuth.
+3. Execute the standard build process:
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## License
+
+This project is proprietary. All rights reserved.

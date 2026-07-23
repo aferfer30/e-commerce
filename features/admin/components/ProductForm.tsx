@@ -7,10 +7,22 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { saveProduct } from "@/features/admin/actions";
 
-export function ProductForm({ initialData, categories }: { initialData: any, categories: any[] }) {
+export function ProductForm({
+  initialData,
+  categories,
+}: {
+  initialData: any;
+  categories: any[];
+}) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -20,7 +32,7 @@ export function ProductForm({ initialData, categories }: { initialData: any, cat
       if (initialData?.id) {
         formData.append("id", initialData.id);
       }
-      
+
       const result = await saveProduct(formData);
       if (result.error) {
         toast.error(result.error);
@@ -42,10 +54,15 @@ export function ProductForm({ initialData, categories }: { initialData: any, cat
           <label className="text-sm font-medium">Name</label>
           <Input name="name" defaultValue={initialData?.name} required />
         </div>
-        
+
         <div className="space-y-2">
           <label className="text-sm font-medium">Slug</label>
-          <Input name="slug" defaultValue={initialData?.slug} required placeholder="unique-product-slug" />
+          <Input
+            name="slug"
+            defaultValue={initialData?.slug}
+            required
+            placeholder="unique-product-slug"
+          />
         </div>
 
         <div className="space-y-2">
@@ -55,13 +72,18 @@ export function ProductForm({ initialData, categories }: { initialData: any, cat
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Category</label>
-          <Select name="categoryId" defaultValue={initialData?.categoryId || categories[0]?.id}>
+          <Select
+            name="categoryId"
+            defaultValue={initialData?.categoryId || categories[0]?.id}
+          >
             <SelectTrigger>
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
             <SelectContent>
               {categories.map((c) => (
-                <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>
+                <SelectItem key={c.id} value={c.id}>
+                  {c.name}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -69,42 +91,93 @@ export function ProductForm({ initialData, categories }: { initialData: any, cat
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Price (DA)</label>
-          <Input type="number" name="price" defaultValue={initialData?.price} required min="0" />
+          <Input
+            type="number"
+            name="price"
+            defaultValue={initialData?.price}
+            required
+            min="0"
+          />
         </div>
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Discount (%)</label>
-          <Input type="number" name="discount" defaultValue={initialData?.discount || 0} min="0" max="100" />
+          <Input
+            type="number"
+            name="discount"
+            defaultValue={initialData?.discount || 0}
+            min="0"
+            max="100"
+          />
         </div>
 
         <div className="space-y-2">
           <label className="text-sm font-medium">Stock</label>
-          <Input type="number" name="stock" defaultValue={initialData?.stock || 0} required min="0" />
+          <Input
+            type="number"
+            name="stock"
+            defaultValue={initialData?.stock || 0}
+            required
+            min="0"
+          />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium">Image URL (JSON array format)</label>
-          <Input name="images" defaultValue={initialData?.images || '["https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&w=800&q=80"]'} required />
+          <label className="text-sm font-medium">
+            Image URL (JSON array format)
+          </label>
+          <Input
+            name="images"
+            defaultValue={
+              initialData?.images ||
+              '["https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&w=800&q=80"]'
+            }
+            required
+          />
         </div>
       </div>
 
       <div className="space-y-2">
         <label className="text-sm font-medium">Short Description</label>
-        <Textarea name="shortDescription" defaultValue={initialData?.shortDescription} required />
+        <Textarea
+          name="shortDescription"
+          defaultValue={initialData?.shortDescription}
+          required
+        />
       </div>
 
       <div className="space-y-2">
         <label className="text-sm font-medium">Full Description</label>
-        <Textarea name="fullDescription" defaultValue={initialData?.fullDescription} required className="min-h-[150px]" />
+        <Textarea
+          name="fullDescription"
+          defaultValue={initialData?.fullDescription}
+          required
+          className="min-h-[150px]"
+        />
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-medium">Specifications (JSON format)</label>
-        <Textarea name="specifications" defaultValue={initialData?.specifications || '{"Color": "Black", "Weight": "1.5kg"}'} required className="font-mono text-xs" />
+        <label className="text-sm font-medium">
+          Specifications (JSON format)
+        </label>
+        <Textarea
+          name="specifications"
+          defaultValue={
+            initialData?.specifications ||
+            '{"Color": "Black", "Weight": "1.5kg"}'
+          }
+          required
+          className="font-mono text-xs"
+        />
       </div>
 
       <div className="flex justify-end gap-4">
-        <Button variant="outline" type="button" onClick={() => router.back()} disabled={isSubmitting}>
+        <Button
+          variant="outline"
+          type="button"
+          onClick={() => router.back()}
+          disabled={isSubmitting}
+        >
           Cancel
         </Button>
         <Button type="submit" disabled={isSubmitting}>

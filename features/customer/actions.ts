@@ -20,7 +20,7 @@ export async function updateProfile(formData: FormData) {
       where: { id: session.user.id },
       data: { name },
     });
-    
+
     revalidatePath("/profile");
     return { success: true };
   } catch (error) {
@@ -38,7 +38,7 @@ export async function toggleWishlistItem(productId: string) {
     const wishlist = await prisma.wishlist.upsert({
       where: { userId: session.user.id },
       update: {},
-      create: { userId: session.user.id }
+      create: { userId: session.user.id },
     });
 
     const existing = await prisma.wishlistItem.findUnique({
@@ -77,7 +77,7 @@ export async function checkIsWishlisted(productId: string) {
 
   try {
     const wishlist = await prisma.wishlist.findUnique({
-      where: { userId: session.user.id }
+      where: { userId: session.user.id },
     });
     if (!wishlist) return false;
 

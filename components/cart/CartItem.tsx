@@ -11,11 +11,13 @@ export function CartItem({ item }: CartItemProps) {
   const { updateQuantity, removeItem } = useCart();
 
   // Format as Algerian Dinar (DA)
-  const formattedPrice = new Intl.NumberFormat('fr-DZ', { 
-    style: 'currency', 
-    currency: 'DZD',
-    minimumFractionDigits: 0
-  }).format(item.price * item.quantity).replace('DZD', 'DA');
+  const formattedPrice = new Intl.NumberFormat("fr-DZ", {
+    style: "currency",
+    currency: "DZD",
+    minimumFractionDigits: 0,
+  })
+    .format(item.price * item.quantity)
+    .replace("DZD", "DA");
 
   return (
     <div className="flex gap-4 py-4">
@@ -32,11 +34,15 @@ export function CartItem({ item }: CartItemProps) {
         <div className="flex justify-between gap-2">
           <div>
             <p className="text-xs text-muted-foreground mb-1">{item.brand}</p>
-            <h4 className="font-medium text-sm line-clamp-2 leading-tight">{item.name}</h4>
+            <h4 className="font-medium text-sm line-clamp-2 leading-tight">
+              {item.name}
+            </h4>
           </div>
-          <p className="font-semibold text-sm whitespace-nowrap">{formattedPrice}</p>
+          <p className="font-semibold text-sm whitespace-nowrap">
+            {formattedPrice}
+          </p>
         </div>
-        
+
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center rounded-md border h-8">
             <Button

@@ -90,7 +90,9 @@ export function Footer() {
             <div className="flex items-center gap-1">
               <span className="text-xs text-muted-foreground">Made with</span>
               <span className="text-xs text-primary mx-1">♥</span>
-              <span className="text-xs text-muted-foreground">for tech enthusiasts</span>
+              <span className="text-xs text-muted-foreground">
+                for tech enthusiasts
+              </span>
             </div>
           </div>
         </div>

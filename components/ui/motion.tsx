@@ -43,11 +43,11 @@ export function StaggerItem({
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
-        visible: { 
-          opacity: 1, 
-          y: 0, 
+        visible: {
+          opacity: 1,
+          y: 0,
           filter: "blur(0px)",
-          transition: { type: "spring", stiffness: 300, damping: 24 }
+          transition: { type: "spring", stiffness: 300, damping: 24 },
         },
       }}
       className={className}

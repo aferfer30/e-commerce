@@ -21,8 +21,8 @@ export const authConfig = {
 
       // Protect /profile, /orders, /wishlist
       if (
-        pathname.startsWith("/profile") || 
-        pathname.startsWith("/orders") || 
+        pathname.startsWith("/profile") ||
+        pathname.startsWith("/orders") ||
         pathname.startsWith("/wishlist")
       ) {
         if (!isLoggedIn) return false;
@@ -50,6 +50,6 @@ export const authConfig = {
         session.user.id = token.id as string;
       }
       return session;
-    }
+    },
   },
 } satisfies NextAuthConfig;

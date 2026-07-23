@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,7 +11,8 @@ interface AdminNavLinkProps {
 
 export function AdminNavLink({ href, icon, children }: AdminNavLinkProps) {
   const pathname = usePathname();
-  const isActive = href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
+  const isActive =
+    href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
 
   return (
     <Link
