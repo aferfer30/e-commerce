@@ -21,10 +21,10 @@ import {
 
 const STATUS_STYLES: Record<string, string> = {
   PENDING: "bg-yellow-500/10 text-yellow-400",
-  PROCESSING: "bg-blue-500/10 text-blue-400",
+  CONFIRMED: "bg-blue-500/10 text-blue-400",
   SHIPPED: "bg-violet-500/10 text-violet-400",
-  DELIVERED: "bg-primary/10 text-primary",
-  CANCELLED: "bg-destructive/10 text-destructive",
+  COMPLETED: "bg-primary/10 text-primary",
+  CANCELED: "bg-destructive/10 text-destructive",
 };
 
 export default async function AdminOrdersPage() {
@@ -161,14 +161,7 @@ export default async function AdminOrdersPage() {
                             <DropdownMenuLabel className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">
                               Update Status
                             </DropdownMenuLabel>
-                            <DropdownMenuSeparator className="bg-border/30" />
-                            {[
-                              "PENDING",
-                              "PROCESSING",
-                              "SHIPPED",
-                              "DELIVERED",
-                              "CANCELLED",
-                            ].map((status) => (
+                            {["PENDING", "CONFIRMED", "SHIPPED", "COMPLETED", "CANCELED"].map((status) => (
                               <DropdownMenuItem
                                 key={status}
                                 className="text-sm cursor-pointer focus:bg-white/5"

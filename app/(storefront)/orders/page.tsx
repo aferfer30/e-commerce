@@ -14,16 +14,11 @@ import {
 } from "@/components/ui/motion";
 
 const STATUS_STYLES: Record<string, string> = {
-  PENDING:
-    "bg-yellow-500/10 text-yellow-400 border-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.2)]",
-  PROCESSING:
-    "bg-blue-500/10 text-blue-400 border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.2)]",
-  SHIPPED:
-    "bg-violet-500/10 text-violet-400 border-violet-500/20 shadow-[0_0_10px_rgba(139,92,246,0.2)]",
-  DELIVERED:
-    "bg-primary/10 text-primary border-primary/20 shadow-[0_0_10px_rgba(232,255,71,0.2)]",
-  CANCELLED:
-    "bg-destructive/10 text-destructive border-destructive/20 shadow-[0_0_10px_rgba(239,68,68,0.2)]",
+  PENDING: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.2)]",
+  CONFIRMED: "bg-blue-500/10 text-blue-400 border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.2)]",
+  SHIPPED: "bg-violet-500/10 text-violet-400 border-violet-500/20 shadow-[0_0_10px_rgba(139,92,246,0.2)]",
+  COMPLETED: "bg-primary/10 text-primary border-primary/20 shadow-[0_0_10px_rgba(232,255,71,0.2)]",
+  CANCELED: "bg-destructive/10 text-destructive border-destructive/20 shadow-[0_0_10px_rgba(239,68,68,0.2)]",
 };
 
 export default async function OrdersPage() {
@@ -120,12 +115,8 @@ export default async function OrdersPage() {
                             {order.total.toLocaleString()} DA
                           </p>
                         </div>
-                        <span
-                          className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-bold border ${STATUS_STYLES[order.status] || "bg-muted text-muted-foreground border-border"}`}
-                        >
-                          {order.status === "DELIVERED" && (
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-2" />
-                          )}
+                        <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider font-bold border ${STATUS_STYLES[order.status] || "bg-muted text-muted-foreground border-border"}`}>
+                          {order.status === "COMPLETED" && <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-2" />}
                           {order.status}
                         </span>
                       </div>
