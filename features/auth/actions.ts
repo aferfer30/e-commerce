@@ -46,7 +46,17 @@ export async function registerUser(formData: FormData) {
 
 export async function loginUser(formData: FormData) {
   try {
-    await signIn("credentials", formData);
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    const result = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
+    if (result?.error) {
+      return { success: false, error: result.error };
+    }
+    return { success: true };
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
@@ -56,6 +66,6 @@ export async function loginUser(formData: FormData) {
           return { success: false, error: "Something went wrong." };
       }
     }
-    throw error; // Let Next.js handle redirect errors
+    return { success: false, error: "An unexpected error occurred." };
   }
 }

@@ -4,8 +4,9 @@ import { ProductGrid } from "@/components/product/ProductGrid";
 import { ProductCard } from "@/components/product/ProductCard";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import { ArrowRight, Zap, Shield, Truck, Star } from "lucide-react";
+import { ArrowRight, Zap, Shield, Truck, Star, Lock, Mouse, ChevronDown } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
+import { HeroBackground } from "@/components/ui/hero-background";
 
 const categories = [
   {
@@ -49,74 +50,138 @@ export default async function Home() {
   return (
     <div className="flex flex-col">
       {/* ═══ HERO ══════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[calc(100dvh-5rem)] flex items-center justify-center overflow-hidden">
-        {/* Background layers */}
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="absolute inset-0 bg-noise pointer-events-none z-50 mix-blend-overlay opacity-[0.1]" />
+      <section className="relative min-h-[calc(100dvh-5rem)] w-full overflow-hidden bg-black flex items-center">
+        {/* Background Image filling the screen, positioned to bottom so we never crop the mouse/rocks */}
+        <HeroBackground />
 
-        {/* Ethereal Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-background to-transparent" />
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center py-12">
-          <FadeIn delay={0.1}>
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-[10px] font-bold text-primary tracking-[0.2em] uppercase">
-                Premium Tech — Algeria's Finest
-              </span>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            {/* Headline */}
-            <h1 className="font-display text-5xl sm:text-7xl lg:text-[7.5rem] font-bold tracking-tighter leading-[0.9] mb-8 text-foreground">
-              Next-Gen Tech,
-              <br />
-              <span className="text-gradient">Delivered Today.</span>
-            </h1>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            {/* Subline */}
-            <p className="text-base sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-              Discover our curated collection of premium laptops, audio gear,
-              and accessories — designed to elevate your professional workflow.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.4}>
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              <Link
-                href="/products"
-                className="group relative inline-flex items-center gap-4 pl-8 pr-2 py-2 bg-primary text-primary-foreground font-semibold text-sm rounded-full active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] glow-primary hover:shadow-[0_0_40px_rgba(232,255,71,0.5)]"
-              >
-                <span className="uppercase tracking-widest text-[10px] font-bold">
-                  Shop Catalog
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-0 flex flex-col justify-center h-full pointer-events-none">
+          
+          {/* Left Column - Text Content */}
+          <div className="w-full max-w-2xl py-8 lg:py-16 shrink-0 pointer-events-auto">
+            <FadeIn delay={0}>
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-primary/20 bg-black/40 backdrop-blur-md mb-6">
+                <div className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-[10px] font-bold text-white/80 tracking-[0.15em] uppercase">
+                  Premium Tech — Algeria's Finest
                 </span>
-                <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                  <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-                </div>
-              </Link>
+              </div>
+            </FadeIn>
 
-              <Link
-                href="/products?category=laptops"
-                className="group relative inline-flex items-center gap-4 pl-8 pr-2 py-2 bg-white/[0.02] border border-border/50 text-foreground font-semibold text-sm rounded-full active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/5 hover:border-primary/30"
-              >
-                <span className="uppercase tracking-widest text-[10px] font-bold">
-                  View Laptops
-                </span>
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                  <ArrowRight
-                    className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors"
-                    strokeWidth={1.5}
-                  />
+            <FadeIn delay={0}>
+              {/* Headline */}
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.05] mb-4 text-white">
+                Next-Gen Tech,
+                <br />
+                <span className="text-primary whitespace-nowrap">Delivered Today.</span>
+              </h1>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              {/* Subline */}
+              <p className="text-base sm:text-lg text-white/80 max-w-xl mb-8 leading-relaxed font-light">
+                Premium laptops, audio, and accessories carefully selected for professionals who expect speed, reliability, and exceptional design.
+              </p>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center gap-4 mb-10">
+                <Link
+                  href="/products"
+                  className="group relative inline-flex items-center justify-between gap-4 pl-6 pr-2 py-2 bg-primary text-black font-semibold rounded-full active:scale-[0.98] transition-all duration-300 hover:brightness-110"
+                >
+                  <span className="uppercase tracking-widest text-xs font-bold">
+                    Shop Catalog
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-black/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                    <ArrowRight className="w-4 h-4" strokeWidth={2} />
+                  </div>
+                </Link>
+
+                <Link
+                  href="/products?category=laptops"
+                  className="group relative inline-flex items-center justify-between gap-4 pl-6 pr-2 py-2 bg-black/40 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full active:scale-[0.98] transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+                >
+                  <span className="uppercase tracking-widest text-xs font-bold text-white/80 group-hover:text-white transition-colors">
+                    View Laptops
+                  </span>
+                  <div className="w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                    <ArrowRight
+                      className="w-4 h-4 text-white/80 group-hover:text-white transition-colors"
+                      strokeWidth={2}
+                    />
+                  </div>
+                </Link>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.45}>
+              {/* Trust signals inline */}
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <Truck className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                    <span className="text-[13px] font-medium text-white">Free Shipping</span>
+                  </div>
+                  <span className="text-[11px] text-white/60">On orders over 5,000 DA</span>
                 </div>
-              </Link>
-            </div>
-          </FadeIn>
+                
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                    <span className="text-[13px] font-medium text-white">Official Warranty</span>
+                  </div>
+                  <span className="text-[11px] text-white/60">2-year coverage</span>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <Lock className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                    <span className="text-[13px] font-medium text-white">Secure Payments</span>
+                  </div>
+                  <span className="text-[11px] text-white/60">100% protected</span>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-primary" strokeWidth={1.5} />
+                    <span className="text-[13px] font-medium text-white">Fast Delivery</span>
+                  </div>
+                  <span className="text-[11px] text-white/60">Across Algeria</span>
+                </div>
+              </div>
+            </FadeIn>
+            
+            <FadeIn delay={0.6}>
+              {/* Customer Rating Box */}
+              <div className="mt-8 inline-flex items-center gap-6 p-4 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-md">
+                <div className="flex -space-x-3">
+                  {[1,2,3,4,5].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-[#111111] overflow-hidden relative bg-[#1a1a1a]">
+                       <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt={`Customer ${i}`} className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col gap-1 pr-4">
+                  <span className="text-[13px] font-medium text-white">Trusted by 2,000+ customers</span>
+                  <div className="flex items-center gap-2">
+                    <div className="flex text-primary">
+                      {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 fill-primary text-primary" />)}
+                    </div>
+                    <span className="text-[13px] font-bold text-white">4.9 <span className="text-white/60 font-normal">Average Rating</span></span>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+        
+        {/* Scroll down indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 z-20 hover:opacity-100 transition-opacity cursor-pointer">
+           <Mouse className="w-5 h-5 text-white/70" strokeWidth={1.5} />
+           <span className="text-[9px] uppercase tracking-[0.2em] font-medium text-white/70 mt-1">Scroll to explore</span>
+           <ChevronDown className="w-4 h-4 text-primary animate-bounce mt-1" strokeWidth={2} />
         </div>
       </section>
 
